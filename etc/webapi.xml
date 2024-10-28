@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/coditron-categorydescription/categorydescription" method="GET">
+		<service class="Coditron\CategoryDescription\Api\CategoryDescriptionManagementInterface" method="getCategoryDescription"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-categorydescription/categorydescription" method="POST">
+		<service class="Coditron\CategoryDescription\Api\CategoryDescriptionRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_CategoryDescription::CategoryDescription_save"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-categorydescription/categorydescription/search" method="GET">
+		<service class="Coditron\CategoryDescription\Api\CategoryDescriptionRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Coditron_CategoryDescription::CategoryDescription_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-categorydescription/categorydescription/:categorydescriptionId" method="GET">
+		<service class="Coditron\CategoryDescription\Api\CategoryDescriptionRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Coditron_CategoryDescription::CategoryDescription_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-categorydescription/categorydescription/:categorydescriptionId" method="PUT">
+		<service class="Coditron\CategoryDescription\Api\CategoryDescriptionRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Coditron_CategoryDescription::CategoryDescription_update"/>
+		</resources>
+	</route>
+	<route url="/V1/coditron-categorydescription/categorydescription/:categorydescriptionId" method="DELETE">
+		<service class="Coditron\CategoryDescription\Api\CategoryDescriptionRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Coditron_CategoryDescription::CategoryDescription_delete"/>
+		</resources>
+	</route>
+</routes>

@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">coditron_categorydescription_categorydescription_form.categorydescription_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Coditron\CategoryDescription\Block\Adminhtml\CategoryDescription\Edit\BackButton"/>
+            <button name="delete" class="Coditron\CategoryDescription\Block\Adminhtml\CategoryDescription\Edit\DeleteButton"/>
+            <button name="save" class="Coditron\CategoryDescription\Block\Adminhtml\CategoryDescription\Edit\SaveButton"/>
+            <button name="save_and_continue" class="Coditron\CategoryDescription\Block\Adminhtml\CategoryDescription\Edit\SaveAndContinueButton"/>
+        </buttons>
+        <namespace>coditron_categorydescription_categorydescription_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>coditron_categorydescription_categorydescription_form.categorydescription_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="categorydescription_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider name="categorydescription_form_data_source" class="Coditron\CategoryDescription\Model\CategoryDescription\DataProvider">
+            <settings>
+                <requestFieldName>categorydescription_id</requestFieldName>
+                <primaryFieldName>categorydescription_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label>General</label>
+        </settings>
+        <field name="category_id" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Coditron\VideoUpload\Model\Options\Categorylist</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="source" xsi:type="string">VideoUpload</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Select Category</label>
+                <dataScope>category_id</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="category_custom_product" formElement="input" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">CategoryDescription</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Category Custom Product</label>
+                <dataScope>category_custom_product</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="category_description" formElement="input" sortOrder="50">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">CategoryDescription</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Product Description</label>
+                <dataScope>category_description</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="category_image" sortOrder="60" formElement="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">CategoryDescription</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Custom Product Image</label>
+                <dataScope>category_image</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+                <!-- 'backend_model' and 'base_url' should be handled in the backend or another appropriate place -->
+            </settings>
+        </field>
+    </fieldset>
+</form>

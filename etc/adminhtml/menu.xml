@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+    <add id="Coditron_CategoryDescription::top_level" title="Coditron" module="Coditron_CategoryDescription" sortOrder="9999" resource="Magento_Backend::content"/>
+    <add id="Coditron_CategoryDescription::coditron_categorydescription_categorydescription" title="CategoryDescription" module="Coditron_CategoryDescription" sortOrder="9999" resource="Magento_Backend::content" parent="Coditron_CategoryDescription::top_level" action="coditron_categorydescription/categorydescription/index"/>
+</menu>
+</config>

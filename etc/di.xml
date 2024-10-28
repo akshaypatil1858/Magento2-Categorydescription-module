@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Coditron\CategoryDescription\Api\CategoryDescriptionManagementInterface" type="Coditron\CategoryDescription\Model\CategoryDescriptionManagement"/>
+	<preference for="Coditron\CategoryDescription\Api\CategoryDescriptionRepositoryInterface" type="Coditron\CategoryDescription\Model\CategoryDescriptionRepository"/>
+	<preference for="Coditron\CategoryDescription\Api\Data\CategoryDescriptionInterface" type="Coditron\CategoryDescription\Model\CategoryDescription"/>
+	<preference for="Coditron\CategoryDescription\Api\Data\CategoryDescriptionSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Coditron\CategoryDescription\Model\ResourceModel\CategoryDescription\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">coditron_categorydescription_categorydescription</argument>
+			<argument name="resourceModel" xsi:type="string">Coditron\CategoryDescription\Model\ResourceModel\CategoryDescription\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="coditron_categorydescription_categorydescription_listing_data_source" xsi:type="string">Coditron\CategoryDescription\Model\ResourceModel\CategoryDescription\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
